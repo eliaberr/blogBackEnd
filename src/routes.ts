@@ -1,14 +1,14 @@
 import { Router } from "express";
-import ProductControllers from "./app/controllers/productsControllers";
+import ArticleControllers from "./app/controllers/articleControllers";
 import userControllers from "./app/controllers/usersControllers";
 
 export const routes = Router()
 
-routes.get('/products', ProductControllers.index)
-routes.get('/products/:id', ProductControllers.show)
-routes.post('/products', ProductControllers.store)
-routes.delete('/products/:id', ProductControllers.delete)
-routes.put('/products/:id', ProductControllers.update)
+routes.get('/article', ArticleControllers.index)
+routes.get('/article/:titleArticle', ArticleControllers.show)
+routes.post('/article', ArticleControllers.store)
+routes.delete('/article/:id', ArticleControllers.delete)
+routes.put('/article/:id', ArticleControllers.update)
 
 routes.get('/users', userControllers.index)
 
