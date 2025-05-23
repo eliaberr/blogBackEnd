@@ -13,12 +13,16 @@ export default new class ArticleRepositories {
         const sql = "SELECT * FROM articles WHERE title=?"
         return consult(sql, "Não possível localizar nenhum produto", title)
     }
-    update(id: string, body: string) {
-        const sql = "UPDATE articles SET ? WHERE id=?"
-        return consult(sql, "Não possível localizar nenhum produto", [body, id])
+    update(id: number, body: any) {
+        const sql = "UPDATE articles SET ? WHERE idArticles = ?";
+        return consult(sql, "Não possível localizar nenhum produto", [body, id]);
     }
     delete(id: string) {
-        const sql = "DELETE FROM articles WHERE id=?"
+        const sql = "DELETE FROM articles WHERE idArticles=?"
         return consult(sql, "Não possível deletar", id)
+    }
+    findMoreFavorite() {
+        const sql = "SELECT * FROM articles ORDER BY qntFavorite DESC"
+        return consult(sql, "Não possível localizar nenhum produto")
     }
 }

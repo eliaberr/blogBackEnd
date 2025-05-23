@@ -24,9 +24,8 @@ export default new class UsersController {
     async update(req: Request, res: Response) {
         const id = req.params.id;
         const { password } = req.body;
-
         const result = await UsersRepositories.update(id, password);
         res.json(result);
     }
-    
+
 }
